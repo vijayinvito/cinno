@@ -4,6 +4,8 @@ return [
 
 	// My controllers
 	"success_store"   => "Item added",
+	"success_activate"   => "User Activate successfully",
+	"success_deactivate"   => "User Deactivate successfully",
 	"success_update"  => "Updated successfully",
 	"success_destroy" => "Removed successfully",
 

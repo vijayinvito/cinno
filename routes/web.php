@@ -11,6 +11,8 @@ Auth::routes();
 Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:10']], function () {
     Route::get('/', 'DashboardController@index')->name('dash');
     Route::resource('users', 'UserController');
+    Route::get('active/{id}', 'UserController@active')->name('active');
+    Route::get('deactive/{id}', 'UserController@deactive')->name('deactive');
 });
 
 Route::get('/logout',function(){
@@ -34,6 +36,9 @@ Route::get('/f_dashboard', function(Request $request){
 
 Route::view('/wizard', 'wizard.index');
 Route::post('/create','PlanController@CreatePlan');
+Route::get('/plan/{id}','PlanController@ViewPlanSingle')->name('singleplan');
+Route::post('/plan/{id}/update','PlanController@UpdatePlan')->name('update');
+
 
 // Route::get('/wizard', function () {
 //     return view('wizard.index');

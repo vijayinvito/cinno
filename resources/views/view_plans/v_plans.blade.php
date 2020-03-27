@@ -46,14 +46,14 @@
                           <tr>
                             <td>{{ $plan->plan_name }}</td>
                             <td>
-                              <a href="#" id="{{ $plan->id }}" class="btn btn-primary btn-icon-split btn-sm">
+                              <a href="" id="{{ $plan->id }}" class="btn btn-primary btn-icon-split btn-sm">
                                 <span class="icon text-white-50">
                                   <i class="fas fa-arrow-right"></i>
                                 </span>
                                 <span class="text">View Plan</span>
                               </a>
                             </td>
-                            <td><a href="#" id="{{ $plan->id }}" class="btn btn-secondary btn-icon-split btn-sm">
+                            <td><a href="{{ route('singleplan', $plan->id) }}" id="{{ $plan->id }}" class="btn btn-secondary btn-icon-split btn-sm">
                                 <span class="icon text-white-50">
                                   <i class="fas fa-flag"></i>
                                 </span>
@@ -67,7 +67,7 @@
                   </div>
                 </div>
 
-{{--       
+{{--       j7csPtd4Q6Ta2BbZKaKW
                 <!-- Content Row -->
                 <div class="row">
       

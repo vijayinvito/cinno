@@ -17,7 +17,9 @@
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>First Name</th>
+                    <th>last Name</th>
+                    <th>Company Name</th>
                     <th>Email</th>
                     <th>Actions</th>
                 </tr>
@@ -25,7 +27,9 @@
             
             <tfoot>
                 <tr>
-                    <th>Name</th>
+                <th>First Name</th>
+                    <th>last Name</th>
+                    <th>Company Name</th>
                     <th>Email</th>
                     <th>Actions</th>
                 </tr>
@@ -34,23 +38,20 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <td><a href="{{ route(ADMIN . '.users.edit', $item->id) }}">{{ $item->name }}</a></td>
+                        <td>{{ $item->first_name }}</td>
+                        <td>{{ $item->last_name }}</td>
+                        <td>{{ $item->company_name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                    <a href="{{ route(ADMIN . '.active', $item->id) }}"  class="btn btn-primary btn-sm">Active</span></a></li>
                                 <li class="list-inline-item">
-                                    {!! Form::open([
-                                        'class'=>'delete',
-                                        'url'  => route(ADMIN . '.users.destroy', $item->id), 
-                                        'method' => 'DELETE',
-                                        ]) 
-                                    !!}
+                                  
 
-                                        <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
+                                <a href="{{ route(ADMIN . '.deactive', $item->id) }}"  class="btn btn-secondary btn-sm">Deactive</span></a></li>
                                         
-                                    {!! Form::close() !!}
+                                
                                 </li>
                             </ul>
                         </td>

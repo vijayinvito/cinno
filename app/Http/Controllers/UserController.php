@@ -78,15 +78,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+
+    public function active($id)
     {
-        $this->validate($request, User::rules(true, $id));
+        F_user::where('id',$id)->update(['is_active'=> 1]);
+        // $this->validate($request, User::rules(true, $id));
 
-        $item = User::findOrFail($id);
+        // $item = User::findOrFail($id);
 
-        $item->update($request->all());
+        // $item->update($request->all());
 
-        return redirect()->route(ADMIN . '.users.index')->withSuccess(trans('app.success_update'));
+         return back()->withSuccess(trans('app.success_activate')); 
     }
 
     /**
@@ -95,11 +99,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deactive($id)
     {
-        User::destroy($id);
+        F_user::where('id',$id)->update(['is_active'=> 0]);
 
-        return back()->withSuccess(trans('app.success_destroy')); 
+        return back()->withSuccess(trans('app.success_deactivate')); 
     }
+
 }
 
